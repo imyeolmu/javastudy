@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class algorithm0321 {
+public class algorithm0521 {
 public static void main(String[] args) throws IOException {
     
 //	 BuffereReader :Scanner 입력방식에 비해 훨씬 빠른게 장점이다.
