@@ -7,7 +7,7 @@ public class algorithm0621 {
 
 	public static void main(String[] args) throws IOException {
 
-		Scanner in = new Scanner(System.in); /// 중요 오차범위가 있기 때문에 int가 아닌 double형을 써야한다 - 자동형변환이 되면서 자료형이 큰쪽으로 변환한다
+		Scanner in = new Scanner(System.in); /// 
 
 		/*
 		 * 배열값을 출력 배열값을 입력 입력된배열값을 비교 배열값의 입력값을 o이면 1점 연속:2점 아니면 0점 +1점 된다 배열값이 x 면 0점
