@@ -34,6 +34,33 @@ Chart.js란?
 
 ```
 
+	//총회원수
+	public int getmembercnt();
+	
+	//오늘 가입수
+	public int getmemberto();
+	
+	//이번주 가입 회원수
+	public int getmembercntw();
+	
+	//1일전
+	public int getmemberone();
+	
+	//2일전
+	public int getmembertwo();
+	
+	//3일전
+	public int getmemberthr();
+	
+	//4일전
+	public int getmemberfour();
+	
+	//5일전
+	public int getmemberfive();
+
+
+}
+
 
 
 
@@ -44,6 +71,37 @@ Chart.js란?
 
 - DashMapper.xml
 ```
+ 총 회원수 
+select count(*) from member
+
+	//오늘 가입수
+
+	select (
+	select count(*) from member where regdate >= to_char(trunc(sysdate),'yyyy/mm/dd')) from dual
+
+
+	//이번주 가입 회원수
+	      select (
+	select count(*) from member where regdate > to_char(trunc(sysdate,'iw'),'yyyy/mm/dd'))
+	from dual
+	        
+	//1일전
+  select (
+	select count(*) from member where regdate >= to_char(trunc(sysdate-1),'yyyy/mm/dd')) from dual
+	//2일전
+  select (
+	select count(*) from member where regdate >= to_char(trunc(sysdate-2),'yyyy/mm/dd')) from dual
+
+	//3일전
+select (
+	select count(*) from member where regdate >= to_char(trunc(sysdate-3),'yyyy/mm/dd')) from dual
+	//4일전
+select (
+	select count(*) from member where regdate >= to_char(trunc(sysdate-4),'yyyy/mm/dd')) from dual
+	//5일전
+  select (
+	select count(*) from member where regdate >= to_char(trunc(sysdate-5),'yyyy/mm/dd')) from dual
+
 
 
 ```
