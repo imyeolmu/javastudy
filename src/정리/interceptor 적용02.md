@@ -28,6 +28,8 @@ LoginInterceptor.java와 AdminInterceptor.java 를 생성한다
         </interceptor>
     </interceptors>
 ```
+/admin 경로가 붙는 모든 url을 대상을 한다
+(url 맵핑을 admin으로 붙이지 않았기 때문에 실행 불가 함으로 방법만 알기로 함-> 모든 url을 바꿔야함)
 
 &nbsp;
 
@@ -84,4 +86,66 @@ printIn을 이용해서 작동되는지 확인한다
 
 ---
 
+&nbsp;
+
+
 - AdminInerceptor.java
+
+관리자 메서드에 접근하는 사용자의 adminCk이 1인지 확인하는 작업이 필요하다.
+
+
+
+member에서 session정보를 memberVO 변수에 담은 후 adminCk의 값을 호출하는 코드를 작성해야한다. 
+
+```java
+public class AdminInterceptor implements HandlerInterceptor{
+	
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		
+		
+		HttpSession session = request.getSession();
+		
+		MemberVO vo = (MemberVO)session.getAttribute("member");
+		
+```
+preHandle() 메소드를 오버라이딩한다.
+
+member에서 session을 호출 시켜서 memeberVo 타입의 VO 변수에 저장한다.
+
+```java
+public class AdminInterceptor implements HandlerInterceptor{
+	
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		
+		
+		HttpSession session = request.getSession();
+		
+		MemberVO vo = (MemberVO)session.getAttribute("member");
+
+		
+		if(vo == null || vo.getAdminchk() == 0) {
+			
+			response.sendRedirect("/client-main");
+			
+			return false;
+		}
+		
+		
+		return true; //관리자 계정 로그인 경우 
+	}
+	
+  
+
+}
+
+```
+if문을 이용하여 vo가 null 이거나 getAdminchk() 메서드 반환 값이 0이면 main페이지로 반환 되도록 한다.
+
+아닐경우 admincontroller.java에 접근 하도록 한다.
+
+
+(url 맵핑을 /admin으로 붙이지 않았기 때문에 실행 불가 함으로 방법만 알기로 함-> 모든 url을 바꿔야함)
