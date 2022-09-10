@@ -88,11 +88,17 @@ SQL 중심에서 객체 중심으로 개발이 가능 하다
 
 JAVA Persistence API
 
+자바 프로그램에서 관계형 데이터 베이스에 접근하는 방식을 명세화한 인터페이스이다.
+
 자바 진영의 ORM 기술 표준
 
 ORM(Object-Reational Mapping)
 
 데이터베이스 객체를 자바 객체로 매핑하여 객체 간의 관계를 바탕으로 SQL을 자동으로 생성한다.
+
+구현체는 Hibernate 라이브러리를 사용하여 구현한다.
+
+
 
 - Spring Data
 
@@ -100,7 +106,21 @@ ORM(Object-Reational Mapping)
 
 JPA, JDBC, Redis, MongoDB등
 
-- Spring Data JPA
+영속 데이터 관리를 위한 프로젝트이며 데이터의 저장 기술에 상관 없이 다양하게 적용 할 수 있다.
+
+
+JPA는 내부적으로  Entity Manerger가 있어 어떤 객체를 저장해줘 어떤객체에 대한 조건을 가져와줘를 진행하는데 이것이 순수 JPA(Spring Data)이다.
+
+
+
+
+&nbsp;
+
+
+5.Spring  Data + JPA
+---
+
+순수 JPA를 더 편하게 사용 할 수 있는 방법을  Spring Data JPA 이라고 한다.(영속 데이터를 관리 할 수 있는것)
 
 Repository 추상화를 통해 interface 선언만으로도 구현 가능
 
@@ -109,27 +129,3 @@ Repository 추상화를 통해 interface 선언만으로도 구현 가능
 Web Support(페이징, 정렬, 도메인클래스, 컨버터등)
 
 
-
-5.Spring  Data + JPA 
-
-
-
-
-
-&nbsp;
-
-5.My Batis에서 JPA로 migration하기
----
-
-- 의존성(DI- Dependency Injection) 라이브러리 추가 하기
-
-Spring Data JPA사용
-
-```java
-<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
-<dependency>    
-<groupId>org.springframework.data<groupId>  
-<artifactId>spring-data-jpa</artifactId>  
-<version>2.4.2</version>
-</dependency>
-```
