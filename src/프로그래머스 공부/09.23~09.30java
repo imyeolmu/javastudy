@@ -1,0 +1,84 @@
+
+
+짝수 홀수
+
+//나의 풀이
+class Solution {
+ public String solution(int num) {
+
+        if(num %2 == 0) {
+            return ("Even");
+        } else
+            return ("Odd");
+  }
+}
+
+
+
+//다른 사람 풀이
+
+public class EvenOrOdd {
+    String evenOrOdd(int num) {
+        return num % 2 == 0 ? "Even": "Odd";
+    }
+
+}
+
+//삼항 연산자 이용해보기 
+
+public class EvenOrOdd {
+    String evenOrOdd(int num) {
+        String result = "";
+
+        result = (num & 0x1) == 1 ? "Odd" : "Even";
+        return result;
+    }
+
+   // 삼항 연산자 인데 &는 비트 연산자 0x1은 0x의 16진수로 1 
+
+   약수의합
+
+
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+        
+     for(int i=1; i<=n; i++){
+         if(n%i==0){
+             answer += i;
+         
+     }       
+        }
+    
+        
+        return answer;
+    }
+}
+
+
+
+//i는 입력될 값을 for반복문을 통해 돌고 약수는 입력된 값이 0으로 나누어질때 약수가 되므로
+//그것을 확인하기 위해서 n으로 나누어준다. answer으로 return해야하기 때문에 n을 반복문을 돌면서 증감해준다.
+
+
+
+
+평균 구하기
+
+
+class Solution {
+    public double solution(int[] arr) {
+        double answer = 0;
+        double sum = 0;
+
+        for (int i = 0; i < arr.length; i++)
+        {
+         sum += arr[i];   
+        }
+        answer = sum/arr.length;
+        return answer;
+    }
+}
+
+//배열은 length를 이용한다. arr[i]를 이용하여 반복문을 돌면서 배열을 돈다. 
+//그값을 sum에 합쳐서 갯수를 가지고 값을 나눠준다.
