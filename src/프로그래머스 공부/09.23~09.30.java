@@ -85,3 +85,41 @@ class Solution {
 
 //배열은 length를 이용한다. arr[i]를 이용하여 반복문을 돌면서 배열을 돈다. 
 //그값을 sum에 합쳐서 갯수를 가지고 값을 나눠준다.
+
+자릿수 구하기
+
+//문자열로 변환해서 구해보기
+
+public class Solution {
+    public int solution(int n) {
+        int answer = 0;
+        String s = Integer.toString(n); //int n을 String으로 변환
+        
+        for(int i=0; i<s.length(); i++){
+            answer += Integer.parseInt(s.substring(i, i+1));
+        }
+        return answer;
+    }
+}
+
+//정수형은 자릿수를 더할 수 없으니 문자열로 형변환을 하여 tostring으로 변환한다. 
+// 변환을 한후 다시 정수형으로 형변환을 한다 . substring으로 문자열을 가른다. substring(a: 시작값.b: 종료값)
+//그 합을 answer에 더해서 return시킨다. 
+
+
+// 정수나눗셈
+
+public class Solution {
+    public int solution(int n) {
+        int answer = 0;
+        
+        while(n > 0){
+            answer += n%10;
+            n/=10;
+        }
+        return answer;
+    }
+}
+
+// 1의 자리를 만들기 위해서 10으로 나눈 나머지를 더해주고 
+//n을 10으로 나누면서 한자리씩 소거해나가는 방법 이다.
