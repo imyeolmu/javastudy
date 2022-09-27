@@ -123,3 +123,20 @@ public class Solution {
 
 // 1의 자리를 만들기 위해서 10으로 나눈 나머지를 더해주고 
 //n을 10으로 나누면서 한자리씩 소거해나가는 방법 이다.
+
+public class GugudanClass {
+	
+	public static void main(String[] args) {
+		
+		for(int i = 1; i <= 9; i++) {
+			
+			for(int j=1; j <= 9; j++) {
+				
+				System.out.println(i + " * " + j + " = " + i * j);
+				
+			}
+			
+			System.out.println();
+		}
+	}
+}
